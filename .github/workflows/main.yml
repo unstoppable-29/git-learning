@@ -15,5 +15,5 @@ jobs:
       - name: Download my code
         uses: actions/checkout@v4
         
-      - name: Run a test command
-        run: echo "Hello World! My CI/CD pipeline is working!"
+      - name: Run a python command
+        run: oython3 test.py
