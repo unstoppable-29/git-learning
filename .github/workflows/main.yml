@@ -1,4 +1,4 @@
-name: My First Pipeline
+name: My First Docker Pipeline
 
 on:
   push:
@@ -6,12 +6,17 @@ on:
       - main
 
 jobs:
-  run-tests: # <--- Notice the name changed here!
+  build-and-test-docker:
     runs-on: ubuntu-latest
     
     steps:
       - name: Download my code
         uses: actions/checkout@v4
         
-      - name: Run my Python test
-        run: python3 test.py # <--- And the command changed here!
+      - name: Build the Docker image
+        # This is the exact same build command you use locally!
+        run: docker build -t my-python-test .
+        
+      - name: Run the Docker container
+        # This boots up the container to execute the test inside it
+        run: docker run my-python-test
