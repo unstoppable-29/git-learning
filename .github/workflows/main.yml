@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Run a python command
-        run: oython3 test.py
+        run: python3 test.py
