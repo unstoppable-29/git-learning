@@ -1,0 +1,19 @@
+name: My First Pipeline
+
+# 1. The Trigger: When should this run?
+on:
+  push:
+    branches:
+      - main
+
+# 2. The Jobs: What should the robot do?
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest # The robot's operating system
+    
+    steps:
+      - name: Download my code
+        uses: actions/checkout@v4
+        
+      - name: Run a test command
+        run: echo "Hello World! My CI/CD pipeline is working!"
