@@ -1,19 +1,17 @@
 name: My First Pipeline
 
-# 1. The Trigger: When should this run?
 on:
   push:
     branches:
       - main
 
-# 2. The Jobs: What should the robot do?
 jobs:
-  say-hello:
-    runs-on: ubuntu-latest # The robot's operating system
+  run-tests: # <--- Notice the name changed here!
+    runs-on: ubuntu-latest
     
     steps:
       - name: Download my code
         uses: actions/checkout@v4
         
-      - name: Run a python command
-        run: python3 test.py
+      - name: Run my Python test
+        run: python3 test.py # <--- And the command changed here!
