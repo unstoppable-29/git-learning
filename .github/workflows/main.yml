@@ -1,4 +1,4 @@
-name: My First Docker Pipeline
+name: Deploy to Production
 
 on:
   push:
@@ -6,17 +6,16 @@ on:
       - main
 
 jobs:
-  build-and-test-docker:
-    runs-on: ubuntu-latest
+  deploy-to-prod:
+    # THIS IS THE MAGIC WORD: It tells GitHub to use VM 1 instead of their cloud servers
+    runs-on: self-hosted 
     
     steps:
       - name: Download my code
         uses: actions/checkout@v4
         
-      - name: Build the Docker image
-        # This is the exact same build command you use locally!
-        run: docker build -t my-python-test .
-        
-      - name: Run the Docker container
-        # This boots up the container to execute the test inside it
-        run: docker run my-python-test
+      - name: Deploy to VM 2
+        # This uses the secure SSH bridge we built earlier!
+        # StrictHostKeyChecking=no prevents the pipeline from getting stuck asking "Are you sure you want to connect?"
+        run: |
+          scp -o StrictHostKeyChecking=no index.html hulk@132.1.16.119:/var/www/html/index.html

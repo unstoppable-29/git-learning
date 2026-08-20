@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Clicker Game</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            background-color: #282c34; 
+            color: white; 
+            margin-top: 100px; 
+        }
+        button { 
+            font-size: 24px; 
+            padding: 15px 30px; 
+            background-color: #61dafb; 
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            transition: 0.2s;
+        }
+        button:hover { 
+            background-color: #21a1c4; 
+            transform: scale(1.1);
+        }
+        #score { 
+            font-size: 80px; 
+            font-weight: bold; 
+            margin: 20px; 
+            color: #98c379; 
+        }
+    </style>
+</head>
+<body>
+    <h1>My DevOps Clicker Game</h1>
+    <p>Every click represents a successful pipeline deployment!</p>
+    
+    <div id="score">0</div>
+    <button onclick="increaseScore()">Deploy Code!</button>
+
+    <script>
+        let score = 0;
+        function increaseScore() {
+            score++;
+            document.getElementById('score').innerText = score;
+        }
+    </script>
+</body>
+</html>
