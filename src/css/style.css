@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>DevOps Clicker Game</title>
-    <style>
-        body { 
+body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
             background-color: darkblue; 
@@ -29,21 +24,3 @@
             margin: 20px; 
             color: #98c379; 
         }
-    </style>
-</head>
-<body>
-    <h1>John's Game</h1>
-    <p>Every click represents a successful pipeline deployment!</p>
-    
-    <div id="score">0</div>
-    <button onclick="increaseScore()">Deploy Code!</button>
-
-    <script>
-        let score = 0;
-        function increaseScore() {
-            score += 5;
-            document.getElementById('score').innerText = score;
-        }
-    </script>
-</body>
-</html>

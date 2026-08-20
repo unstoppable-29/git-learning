@@ -14,8 +14,6 @@ jobs:
       - name: Download my code
         uses: actions/checkout@v4
         
-      - name: Deploy to VM 2
-        # This uses the secure SSH bridge we built earlier!
-        # StrictHostKeyChecking=no prevents the pipeline from getting stuck asking "Are you sure you want to connect?"
+      - name: Deploy whole directory to VM 2
         run: |
-          scp -o StrictHostKeyChecking=no index.html hulk@132.1.16.119:/var/www/html/index.html
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./src/ hulk@132.1.16.119:/var/www/html/
